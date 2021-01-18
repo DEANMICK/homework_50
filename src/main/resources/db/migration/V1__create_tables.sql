@@ -17,19 +17,22 @@ CREATE TABLE publications (
 CREATE TABLE publications_author (
     id INTEGER NOT NULL AUTO_INCREMENT,
     publication_id INTEGER NOT NULL,
-    author_id INTEGER NOT NULL
+    author_id INTEGER NOT NULL,
+    PRIMARY KEY (id)
 ) engine=InnoDB;
 
 CREATE TABLE subscribers (
     id INTEGER NOT NULL AUTO_INCREMENT,
     subscriber_id INTEGER NOT NULL,
-    user_id INTEGER NOT NULL
+    user_id INTEGER NOT NULL,
+    PRIMARY KEY (id)
 ) engine=InnoDB;
 
 CREATE TABLE subscriptions (
     id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER NOT NULL,
-    subscriber_id INTEGER NOT NULL
+    subscriber_id INTEGER NOT NULL,
+    PRIMARY KEY (id)
 ) engine=InnoDB;
 
 CREATE TABLE users (
