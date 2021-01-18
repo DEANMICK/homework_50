@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LikeRepository extends JpaRepository<Like, Integer> {
+    Like save(Like like);
 //    1) Просмотр всех кто user кто поставил лайк
 //    2) Поиск user по лайку
 //    3) Save Like

@@ -44,4 +44,7 @@ public class User {
 
     @Column(name = "date")
     private LocalDateTime date;
+
+    public User(String username, String email, String password) {
+    }
 }
