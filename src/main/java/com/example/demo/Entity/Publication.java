@@ -3,9 +3,7 @@ package com.example.demo.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = true)
@@ -13,6 +11,12 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "publications")
 public class Publication extends Main{
+
+    @Column(name = "author")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
     @Column(name = "image")
     private String source;
 
