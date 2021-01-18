@@ -1,20 +1,19 @@
 package com.example.demo.Entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name = "publications")
-public class Publication extends Main{
+public class Publication{
 
-    @Column(name = "author")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
     private User author;
 
     @Column(name = "image")
@@ -25,4 +24,13 @@ public class Publication extends Main{
 
     @Column(name = "date")
     private LocalDateTime date;
+
+    public Publication() {
+    }
+
+    public Publication(String source, String description, LocalDateTime date) {
+        this.source = source;
+        this.description = description;
+        this.date = date;
+    }
 }
