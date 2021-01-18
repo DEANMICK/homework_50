@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Integer> {
 //    1) Поиск user по username
 //    2) Поиск user по email
+//    3) Save User
+//    4) Delete User
+//    5) Update User
 }
