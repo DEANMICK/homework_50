@@ -1,36 +1,29 @@
 package com.example.demo.Entity;
 
-import lombok.Data;
-import javax.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
+@RequiredArgsConstructor
 @Data
-@Entity
-@Table(name = "publications")
+@Builder
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+@Document(collection = "publications")
 public class Publication{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @DBRef
     private User author;
 
-    @Column(name = "image")
     private String source;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "date")
     private LocalDateTime date;
-
-    public Publication() {
-    }
-
-    public Publication(String source, String description, LocalDateTime date) {
-        this.source = source;
-        this.description = description;
-        this.date = date;
-    }
 }

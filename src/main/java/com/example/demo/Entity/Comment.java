@@ -1,28 +1,24 @@
 package com.example.demo.Entity;
 
-import lombok.Data;
-import javax.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@RequiredArgsConstructor
 @Data
-@Table(name = "comments")
+@Builder
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+@Document(collection = "comments")
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "text")
     private String text;
 
-    @JoinColumn(name = "user_id")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @DBRef
     private User user;
 
-    public Comment() {
-    }
-
-    public Comment(String text, User user) {
-        this.user = user;
-        this.text = text;
-    }
 }
