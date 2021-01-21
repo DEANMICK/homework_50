@@ -32,10 +32,10 @@ public class User {
     private List<Publication> publication = new ArrayList<>();
 
     @DBRef
-    private List<User> subscription = new ArrayList<>();
+    private List<Subscription> subscription = new ArrayList<>();
 
     @DBRef
-    private List<User> subscriber = new ArrayList<>();
+    private List<Subscriber> subscriber = new ArrayList<>();
 
     private LocalDateTime date;
 }
