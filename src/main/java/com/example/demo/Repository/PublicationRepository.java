@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PublicationRepository extends MongoRepository<Publication, Integer> {
-    List<Publication> findPublicationById(int i);
+    Publication findPublicationById(Integer i);
+    Iterable<Publication> findUserPublicationById(Integer id);
+
 }

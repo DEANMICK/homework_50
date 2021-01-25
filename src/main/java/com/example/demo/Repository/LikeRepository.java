@@ -1,14 +1,12 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Entity.Like;
+import com.example.demo.Entity.Publication;
+import com.example.demo.Entity.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LikeRepository extends MongoRepository<Like, Integer> {
-//    1) Просмотр всех кто user кто поставил лайк
-//    2) Поиск user по лайку
-//    3) Save Like
-//    4) Delete Like
-//    5) Update Like
+    boolean existsLikeByUserAndPublication(User user, Publication publication);
 }

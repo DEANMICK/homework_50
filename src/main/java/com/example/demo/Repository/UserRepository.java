@@ -8,9 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends MongoRepository<User, Integer> {
     User findAuthorById(int i);
     User findUserById(int j);
-//    1) Поиск user по username
-//    2) Поиск user по email
-//    3) Save User
-//    4) Delete User
-//    5) Update User
+    User findUserByName(String name);
+    User findUserByEmail(String email);
+    User findUserByUsername(String username);
+    boolean existsByEmail(String mail);
 }
