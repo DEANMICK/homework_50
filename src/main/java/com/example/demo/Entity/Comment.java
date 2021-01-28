@@ -21,4 +21,7 @@ public class Comment {
     @DBRef
     private User user;
 
+    @DBRef
+    private Publication publication;
+
 }
